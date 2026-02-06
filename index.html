@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💘</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff5f8a, #ff8fb1);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+}
+
+h1 {
+    color: white;
+    font-size: 26px;
+    margin-bottom: 40px;
+}
+
+button {
+    padding: 14px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#yes {
+    background: #28a745;
+    color: white;
+}
+
+#no {
+    background: #dc3545;
+    color: white;
+    position: absolute;
+}
+
+img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+    <h1>Taiyeba,<br>will you be my Valentine? 💖</h1>
+    <button id="yes" onclick="yesClick()">Yes</button>
+    <button id="no" ontouchstart="noClick()" onmouseover="noClick()">No</button>
+</div>
+
+<script>
+let noCount = 0;
+
+function noClick() {
+    noCount++;
+
+    const noBtn = document.getElementById("no");
+
+    if (noCount >= 3) {
+        document.getElementById("content").innerHTML = `
+            <h1 style="color:white;">Don't play with my life 😔</h1>
+            <img src="https://i.imgur.com/8Km9tLL.png" alt="sad">
+        `;
+        return;
+    }
+
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function yesClick() {
+    document.getElementById("content").innerHTML = `
+        <h1 style="color:white;">Yayyy! 🥰💘<br>You just made me the happiest!</h1>
+    `;
+}
+</script>
+
+</body>
+</html>
